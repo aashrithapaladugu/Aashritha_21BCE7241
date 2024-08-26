@@ -1,38 +1,149 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0d0d0d;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures body takes the full height of the viewport */
+  padding: 20px; /* Adds some padding for better content spacing */
+  box-sizing: border-box; /* Ensures padding and border are included in element's width and height */
+}
+
+h1 {
   text-align: center;
+  font-size: 2.5rem; /* Increased font size for better visibility */
+  margin-bottom: 30px;
+  color: #ffdd57; /* A contrasting color to make the heading pop */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.board-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid #333;
+  padding: 25px;
+  background-color: #222;
+  border-radius: 10px;
+  width: 90%; /* Makes the board take up more width on larger screens */
+  max-width: 600px; /* Restrains the board size on very wide screens */
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%; /* Ensures the board fits within its container */
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border: 1px solid #444;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cell:hover {
+  background-color: skyblue;
+}
+
+.selected {
+  background-color: #1e90ff;
+}
+
+.controls-and-history {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+  text-align: center;
+  width: 100%;
+}
+
+.move-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.move-buttons button {
+  padding: 10px 20px;
+  background-color: #444;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.move-buttons button:hover {
+  background-color: #555;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.message {
+  color: #ff6347;
+  margin-top: 10px;
+  font-size: 1.2rem; /* Increased font size for better visibility */
+}
+
+.winner {
+  text-align: center;
+  color: #32cd32;
+  font-size: 1.5rem; /* Larger font size for winner announcement */
+  margin-top: 20px;
+}
+
+.move-history {
+  margin-top: 20px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.move-history h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.move-history p {
+  background-color: #444;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  line-height: 1.5;
+  word-wrap: break-word; /* Ensures long text doesn't overflow */
+}
+
+@media (max-width: 600px) {
+  .cell {
+    width: 50px;
+    height: 50px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .move-buttons button {
+    padding: 8px 16px;
+  }
+
+  .winner {
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
   }
 }
